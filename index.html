@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>nuit. — Ropa urbana y joyería de autor · Luque, Paraguay</title>
+  <meta name="description" content="nuit. es streetwear con raíz y joyería con carácter. Diseño propio, hecho en Paraguay. Ñande pyhare.">
+  <meta name="theme-color" content="#4E684B">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Barra de anuncio -->
+  <div class="announce">
+    <p>Envíos a todo el país · <strong>Hecho en Paraguay</strong> · <span class="lora">Ñande pyhare.</span></p>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a href="#top" class="header__brand" aria-label="nuit. — inicio">
+        <img src="assets/logo-nuit-verde.png" alt="nuit." class="header__logo" width="1205" height="429">
+      </a>
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#tienda">Tienda</a>
+        <a href="#joyeria">Joyería</a>
+        <a href="#colecciones">Colecciones</a>
+        <a href="#nosotros">Nosotros</a>
+      </nav>
+      <div class="header__actions">
+        <button class="cart-btn" id="cartOpen" aria-label="Abrir carrito">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="cart-btn__count" id="cartCount">0</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="nanduti hero__pattern" aria-hidden="true"></div>
+      <div class="container hero__inner">
+        <p class="eyebrow eyebrow--light">Colección Ao Po'i — invierno 2026</p>
+        <h1 class="hero__logo">
+          <img src="assets/logo-nuit-crema.png" alt="nuit." width="1205" height="429">
+          <span class="hero__est">EST. 2025</span>
+        </h1>
+        <p class="hero__tagline lora">Ñande pyhare.</p>
+        <p class="hero__lead">Streetwear con raíz. Joyería con carácter. Diseñado en Luque, hecho para la calle.</p>
+        <div class="hero__ctas">
+          <a href="#tienda" class="btn btn--crema">Ver la tienda</a>
+          <a href="#joyeria" class="btn btn--outline-light">Joyería 925</a>
+        </div>
+      </div>
+      <div class="hero__coords" aria-hidden="true">25°16'S · 57°29'O — Luque · PY</div>
+    </section>
+
+    <!-- Pilares -->
+    <div class="marquee" aria-label="Pilares de marca">
+      <div class="marquee__track">
+        <span>Raíz paraguaya</span><i>n.</i><span>Cultura urbana</span><i>n.</i><span>Diseño propio</span><i>n.</i><span>Calidad que dura</span><i>n.</i><span>Noche &amp; comunidad</span><i>n.</i>
+        <span>Raíz paraguaya</span><i>n.</i><span>Cultura urbana</span><i>n.</i><span>Diseño propio</span><i>n.</i><span>Calidad que dura</span><i>n.</i><span>Noche &amp; comunidad</span><i>n.</i>
+      </div>
+    </div>
+
+    <!-- Drop destacado -->
+    <section class="drop">
+      <div class="container drop__grid">
+        <div class="drop__text">
+          <p class="eyebrow">Nuevo drop</p>
+          <h2 class="h2">Hecho acá.<br>Para la calle.</h2>
+          <p class="lora drop__sub">Colección Ao Po'i — bordado tono sobre tono en prendas oversize.</p>
+          <p>El ao po'i de siempre, llevado a remeras boxy y hoodies pesados. Algodón 100% peinado, bordado a mano y cortado en Paraguay. Pocas piezas por talle: cuando se van, se van.</p>
+          <a href="#tienda" class="btn btn--verde">Comprar Ao Po'i</a>
+        </div>
+        <div class="drop__visual">
+          <div class="tile tile--verde drop__tile">
+            <div class="nanduti nanduti--faint" aria-hidden="true"></div>
+            <div class="drop__art" data-art="hoodie" data-color="#EFECE8" data-print="verde"></div>
+            <span class="drop__tag">Hoodie Ao Po'i · Gs. 320.000</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tienda -->
+    <section class="shop" id="tienda">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Tienda</p>
+            <h2 class="h2">Lo nuestro, en la calle.</h2>
+          </div>
+          <div class="filters" role="tablist" aria-label="Filtrar productos">
+            <button class="filter is-active" data-filter="todo" role="tab" aria-selected="true">Todo</button>
+            <button class="filter" data-filter="ropa" role="tab" aria-selected="false">Ropa</button>
+            <button class="filter" data-filter="joyeria" role="tab" aria-selected="false">Joyería</button>
+          </div>
+        </div>
+        <div class="products" id="products"></div>
+      </div>
+    </section>
+
+    <!-- Joyería -->
+    <section class="jewel" id="joyeria">
+      <div class="container jewel__grid">
+        <div class="jewel__text">
+          <p class="eyebrow eyebrow--oro">Joyería · Plata 925 y oro 18k</p>
+          <h2 class="h2">Plata, oro y diseño propio.</h2>
+          <p>Nuestra línea más sobria: menos gráfica, más forma y material. Formas redondeadas como las curvas del logo, el círculo del ñandutí como estructura y una bolita de metal en cada pieza como firma.</p>
+          <ul class="jewel__list">
+            <li><strong>Grabado interno</strong> con el isotipo <em>n.</em> y la ley del metal.</li>
+            <li><strong>Hecho a mano</strong> en Paraguay, en ediciones cortas.</li>
+            <li><strong>Certificado de autenticidad</strong> en cada pieza de oro.</li>
+          </ul>
+          <a href="#tienda" class="btn btn--oro" data-goto-filter="joyeria">Ver joyería</a>
+        </div>
+        <div class="jewel__cards">
+          <article class="jewel__card">
+            <div class="jewel__art" data-art="ring" data-metal="plata"></div>
+            <p class="lora jewel__name">Anillo Punto</p>
+            <p class="label">Plata 925 · Diseño nuit.</p>
+          </article>
+          <article class="jewel__card">
+            <div class="jewel__art" data-art="medal" data-metal="oro"></div>
+            <p class="lora jewel__name">Medalla Ñandutí</p>
+            <p class="label">Oro 18k · Calado radial</p>
+          </article>
+          <article class="jewel__seal">
+            <img src="assets/isotipo-n-oro.png" alt="" width="678" height="411">
+            <span class="label">n. 18k</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Colecciones -->
+    <section class="collections" id="colecciones">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Colecciones</p>
+            <h2 class="h2">Cada colección es un capítulo de la noche.</h2>
+          </div>
+        </div>
+        <div class="coll-grid">
+          <article class="coll coll--crema">
+            <span class="label">Invierno 2026 · disponible</span>
+            <h3 class="lora">Ao Po'i</h3>
+            <p>Bordado tono sobre tono en prendas oversize.</p>
+            <span class="coll__meta">Crema · Verde</span>
+          </article>
+          <article class="coll coll--lapacho">
+            <span class="label">Primavera · agosto</span>
+            <h3 class="lora">Tajy</h3>
+            <p>Cápsula de primavera, cuando florece el lapacho en Asunción.</p>
+            <span class="coll__meta">Lapacho · Crema</span>
+          </article>
+          <article class="coll coll--tierra">
+            <span class="label">Otoño · próximamente</span>
+            <h3 class="lora">Yvy Pytã</h3>
+            <p>Tierra colorada: terracota, cuero y plata envejecida.</p>
+            <span class="coll__meta">Tierra · Noche</span>
+          </article>
+          <article class="coll coll--oro">
+            <span class="label">Joyería · permanente</span>
+            <h3 class="lora">Ñandutí</h3>
+            <p>Línea de joyas en oro y plata con calados radiales.</p>
+            <span class="coll__meta">Oro · Plata</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Manifiesto -->
+    <section class="manifesto">
+      <div class="nanduti nanduti--faint manifesto__pattern" aria-hidden="true"></div>
+      <div class="container manifesto__inner">
+        <p class="manifesto__quote lora">“Lo nuestro también es tendencia.”</p>
+        <img src="assets/isotipo-n-crema.png" alt="" class="manifesto__iso" width="678" height="411">
+      </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section class="about" id="nosotros">
+      <div class="container about__grid">
+        <div class="about__text">
+          <p class="eyebrow eyebrow--oro">Nosotros</p>
+          <h2 class="h2">La noche es nuestra.</h2>
+          <p class="about__lead"><strong>nuit.</strong> significa <span class="lora">noche.</span> Es el momento en que la ciudad cambia de ritmo: el tereré se vuelve previa, la plaza se vuelve punto de encuentro y la calle se vuelve pasarela.</p>
+          <p>Somos una marca de ropa juvenil y joyería de autor nacida en Luque, Paraguay. Tomamos lo nuestro —el ñandutí, el ao po'i, el guaraní, la tierra colorada, el lapacho— y lo llevamos a la calle con códigos urbanos y contemporáneos. Sin folklore de souvenir: identidad paraguaya, usada con orgullo y con estilo.</p>
+          <p>El punto final del logo es una declaración: <span class="lora">lo decimos y listo.</span></p>
+        </div>
+        <div class="values">
+          <div class="value"><h3>Orgullo local.</h3><p>Lo nuestro tiene valor y lo mostramos.</p></div>
+          <div class="value"><h3>Hecho con intención.</h3><p>Diseño propio, materiales nobles, acabado prolijo.</p></div>
+          <div class="value"><h3>Comunidad.</h3><p>La marca se construye con la gente que la usa.</p></div>
+          <div class="value"><h3>Atemporal + calle.</h3><p>Piezas para usar mucho, no para tirar.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comunidad / newsletter -->
+    <section class="community">
+      <div class="container community__grid">
+        <div class="community__feed" aria-hidden="true">
+          <div class="feed feed--dusk"></div>
+          <div class="feed feed--verde"><img src="assets/logo-nuit-crema.png" alt=""></div>
+          <div class="feed feed--noche"><span class="feed__dot"></span></div>
+          <div class="feed feed--crema"><b>Hecho acá.<br>Para la calle.</b><em class="lora">Colección Ao Po'i</em></div>
+          <div class="feed feed--sand"></div>
+          <div class="feed feed--tierra"><span class="lora">Ñande pyhare.</span></div>
+        </div>
+        <div class="community__text">
+          <p class="eyebrow">Comunidad</p>
+          <h2 class="h2">Ahora también es tu noche.</h2>
+          <p>Sumate a la lista y enterate antes que nadie de cada drop, pop-up y feria. Te regalamos <strong>10% en tu primera compra.</strong></p>
+          <form class="newsletter" id="newsletter" novalidate>
+            <label for="email" class="sr-only">Tu correo</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
+            <button type="submit" class="btn btn--verde">Sumarme</button>
+          </form>
+          <p class="newsletter__msg" id="newsletterMsg" role="status"></p>
+          <p class="community__social">Seguinos en <a href="https://instagram.com/nuit.py" target="_blank" rel="noopener">@nuit.py</a> · #ÑandePyhare #HechoEnParaguay</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="nanduti nanduti--faint footer__pattern" aria-hidden="true"></div>
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <img src="assets/isotipo-n-crema.png" alt="nuit." class="footer__iso" width="678" height="411">
+        <p class="lora footer__tag">Ñande pyhare.</p>
+        <p class="label">nuit. · EST. 2025 · Luque, Paraguay</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>Tienda</h4>
+          <a href="#tienda" data-goto-filter="ropa">Ropa</a>
+          <a href="#tienda" data-goto-filter="joyeria">Joyería</a>
+          <a href="#colecciones">Colecciones</a>
+        </div>
+        <div>
+          <h4>Ayuda</h4>
+          <a href="#" data-info="envios">Envíos</a>
+          <a href="#" data-info="talles">Guía de talles</a>
+          <a href="#" data-info="cuidado">Cuidado de prendas</a>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <a href="https://instagram.com/nuit.py" target="_blank" rel="noopener">Instagram</a>
+          <a href="#" id="whatsappLink">WhatsApp</a>
+          <span>Luque, Paraguay</span>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span id="year">2026</span> nuit. Hecho en Paraguay 🇵🇾</span>
+      <span>Diseño propio · Plata 925 · Algodón 100%</span>
+    </div>
+  </footer>
+
+  <!-- Carrito -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="cart" id="cart" aria-label="Carrito" aria-hidden="true">
+    <div class="cart__head">
+      <h3>Tu pedido</h3>
+      <button class="cart__close" id="cartClose" aria-label="Cerrar carrito">×</button>
+    </div>
+    <div class="cart__body" id="cartItems"></div>
+    <div class="cart__foot">
+      <div class="cart__total"><span>Total</span><strong id="cartTotal">Gs. 0</strong></div>
+      <button class="btn btn--verde btn--block" id="checkout">Pedir por WhatsApp</button>
+      <p class="cart__note">Te respondemos al toque para coordinar pago y envío.</p>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
