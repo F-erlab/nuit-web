@@ -6,7 +6,7 @@
 
   /* ---------- Configuración ---------- */
   // Reemplazá por el número real de WhatsApp de la tienda (formato internacional, sin +)
-  var WHATSAPP = "595900000000";
+  var WHATSAPP = "595993491203";
 
   var C = {
     verde: "#4E684B", crema: "#EFECE8", noche: "#1E2A1F",
