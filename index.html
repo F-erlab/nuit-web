@@ -6,13 +6,30 @@
   <title>nuit. — Ropa urbana y joyería de autor · Luque, Paraguay</title>
   <meta name="description" content="nuit. es streetwear con raíz y joyería con carácter. Diseño propio, hecho en Paraguay. Ñande pyhare.">
   <meta name="theme-color" content="#4E684B">
+  <link rel="canonical" href="https://f-erlab.github.io/nuit-web/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="nuit.">
+  <meta property="og:locale" content="es_PY">
+  <meta property="og:url" content="https://f-erlab.github.io/nuit-web/">
+  <meta property="og:title" content="nuit. — Ropa urbana y joyería de autor · Luque, Paraguay">
+  <meta property="og:description" content="Streetwear con raíz y joyería con carácter. Diseño propio, hecho en Paraguay. Pedí por WhatsApp. Ñande pyhare.">
+  <meta property="og:image" content="https://f-erlab.github.io/nuit-web/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logo de nuit. en crema sobre fondo verde yerba">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="nuit. — Ropa urbana y joyería de autor">
+  <meta name="twitter:description" content="Streetwear con raíz y joyería con carácter. Hecho en Paraguay. Ñande pyhare.">
+  <meta name="twitter:image" content="https://f-erlab.github.io/nuit-web/assets/og-image.png">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=3">
+  <link rel="stylesheet" href="css/styles.css?v=4">
 </head>
 <body>
+  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
   <!-- Barra de anuncio -->
   <div class="announce">
@@ -30,11 +47,12 @@
         <a href="#joyeria">Joyería</a>
         <a href="#colecciones">Colecciones</a>
         <a href="#nosotros">Nosotros</a>
+        <a href="#ayuda">Ayuda</a>
       </nav>
       <div class="header__actions">
-        <button class="cart-btn" id="cartOpen" aria-label="Abrir carrito">
+        <button class="cart-btn" id="cartOpen" aria-label="Abrir tu pedido" aria-haspopup="dialog">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="cart-btn__count" id="cartCount">0</span>
+          <span class="cart-btn__count" id="cartCount" aria-hidden="true">0</span>
         </button>
         <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
           <span></span><span></span>
@@ -43,7 +61,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="contenido">
     <!-- Hero -->
     <section class="hero">
       <div class="nanduti hero__pattern" aria-hidden="true"></div>
@@ -99,13 +117,43 @@
             <p class="eyebrow">Tienda</p>
             <h2 class="h2">Lo nuestro, en la calle.</h2>
           </div>
-          <div class="filters" role="tablist" aria-label="Filtrar productos">
-            <button class="filter is-active" data-filter="todo" role="tab" aria-selected="true">Todo</button>
-            <button class="filter" data-filter="ropa" role="tab" aria-selected="false">Ropa</button>
-            <button class="filter" data-filter="joyeria" role="tab" aria-selected="false">Joyería</button>
+          <div class="filters" role="group" aria-label="Filtrar productos">
+            <button type="button" class="filter is-active" data-filter="todo" aria-pressed="true">Todo</button>
+            <button type="button" class="filter" data-filter="ropa" aria-pressed="false">Ropa</button>
+            <button type="button" class="filter" data-filter="joyeria" aria-pressed="false">Joyería</button>
           </div>
         </div>
         <div class="products" id="products"></div>
+      </div>
+    </section>
+
+    <!-- Cómo comprar -->
+    <section class="how" id="como-comprar">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Cómo comprar</p>
+            <h2 class="h2">Tres pasos y es tuyo.</h2>
+          </div>
+          <a href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." class="btn btn--outline-dark" target="_blank" rel="noopener">Escribinos</a>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="step__num lora" aria-hidden="true">1.</span>
+            <h3>Elegís</h3>
+            <p>Mirá la tienda, elegí tu talle y sumalo al pedido.</p>
+          </li>
+          <li class="step">
+            <span class="step__num lora" aria-hidden="true">2.</span>
+            <h3>Pedís por WhatsApp</h3>
+            <p>Tu pedido nos llega armado, con talles y total. Sin registrarte.</p>
+          </li>
+          <li class="step">
+            <span class="step__num lora" aria-hidden="true">3.</span>
+            <h3>Coordinamos</h3>
+            <p>Te respondemos al toque para cerrar pago y envío.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -208,6 +256,40 @@
       </div>
     </section>
 
+    <!-- Ayuda / preguntas frecuentes -->
+    <section class="faq" id="ayuda">
+      <div class="container faq__grid">
+        <div class="faq__intro">
+          <p class="eyebrow">Ayuda</p>
+          <h2 class="h2">Preguntá tranquilo.</h2>
+          <p>Lo que más nos consultan, en corto. ¿Te quedó una duda? Escribinos y te respondemos al toque.</p>
+          <a href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." class="btn btn--verde" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </div>
+        <div class="faq__list">
+          <details class="faq__item" id="faq-envios" name="faq" open>
+            <summary>¿Hacen envíos?</summary>
+            <p>Sí, a todo el país. En Gran Asunción llega en 24–48 h. El costo y el horario los coordinamos por WhatsApp cuando confirmás tu pedido.</p>
+          </details>
+          <details class="faq__item" id="faq-talles" name="faq">
+            <summary>¿Qué talle pido?</summary>
+            <p>Remeras y hoodies vienen en S, M, L y XL, con corte oversize. Si te gusta más ajustado, pedí un talle menos. Las gorras son talle único y la medida de los anillos la vemos juntos por WhatsApp.</p>
+          </details>
+          <details class="faq__item" id="faq-pago" name="faq">
+            <summary>¿Cómo pago?</summary>
+            <p>Armás tu pedido acá y nos lo mandás por WhatsApp. Ahí te confirmamos disponibilidad y coordinamos el pago y la entrega.</p>
+          </details>
+          <details class="faq__item" id="faq-cuidado" name="faq">
+            <summary>¿Cómo cuido mi prenda?</summary>
+            <p>Lavala a mano o en frío, del revés, y secala a la sombra. Cuidala y te dura años.</p>
+          </details>
+          <details class="faq__item" id="faq-joyas" name="faq">
+            <summary>¿Y las joyas?</summary>
+            <p>Guardalas secas y lejos de perfumes y cremas. Si la plata se oscurece, un paño suave la deja como nueva. Las piezas de oro van con certificado de autenticidad.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <!-- Comunidad / newsletter -->
     <section class="community">
       <div class="container community__grid">
@@ -253,9 +335,10 @@
         </div>
         <div>
           <h4>Ayuda</h4>
-          <a href="#" data-info="envios">Envíos</a>
-          <a href="#" data-info="talles">Guía de talles</a>
-          <a href="#" data-info="cuidado">Cuidado de prendas</a>
+          <a href="#como-comprar">Cómo comprar</a>
+          <a href="#faq-envios" data-faq="faq-envios">Envíos</a>
+          <a href="#faq-talles" data-faq="faq-talles">Guía de talles</a>
+          <a href="#faq-cuidado" data-faq="faq-cuidado">Cuidado de prendas</a>
         </div>
         <div>
           <h4>Contacto</h4>
@@ -273,18 +356,49 @@
 
   <!-- Carrito -->
   <div class="overlay" id="overlay" hidden></div>
-  <aside class="cart" id="cart" aria-label="Carrito" aria-hidden="true">
+  <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true" tabindex="-1">
     <div class="cart__head">
-      <h3>Tu pedido</h3>
-      <button class="cart__close" id="cartClose" aria-label="Cerrar carrito">×</button>
+      <h3 id="cartTitle">Tu pedido</h3>
+      <button type="button" class="cart__close" id="cartClose" aria-label="Cerrar pedido">×</button>
     </div>
     <div class="cart__body" id="cartItems"></div>
     <div class="cart__foot">
       <div class="cart__total"><span>Total</span><strong id="cartTotal">Gs. 0</strong></div>
-      <button class="btn btn--verde btn--block" id="checkout">Pedir por WhatsApp</button>
+      <a class="btn btn--verde btn--block" id="checkout" href="https://wa.me/595993491203" target="_blank" rel="noopener">Pedir por WhatsApp</a>
       <p class="cart__note">Te respondemos al toque para coordinar pago y envío.</p>
     </div>
   </aside>
+
+  <!-- Vista rápida de producto -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__dialog" id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalName" tabindex="-1">
+      <button type="button" class="modal__close" id="modalClose" aria-label="Cerrar vista rápida">×</button>
+      <div class="modal__media" id="modalMedia"></div>
+      <form class="modal__info" id="modalForm" novalidate>
+        <p class="eyebrow" id="modalCat"></p>
+        <h3 class="modal__name" id="modalName"></h3>
+        <p class="product__meta" id="modalMeta"></p>
+        <p class="modal__price" id="modalPrice"></p>
+        <p class="modal__desc" id="modalDesc"></p>
+        <fieldset class="sizes" id="modalSizes">
+          <legend class="label">Elegí tu talle</legend>
+          <div class="sizes__row" id="modalSizeRow"></div>
+        </fieldset>
+        <p class="modal__note" id="modalNote"></p>
+        <p class="modal__error" id="modalError" role="alert"></p>
+        <div class="modal__buy">
+          <span class="label modal__qty-label" aria-hidden="true">Cantidad</span>
+          <div class="qty qty--lg" role="group" aria-label="Cantidad">
+            <button type="button" data-mq="-1" aria-label="Quitar uno">−</button>
+            <span id="modalQty" aria-live="polite">1</span>
+            <button type="button" data-mq="1" aria-label="Sumar uno">+</button>
+          </div>
+          <button type="submit" class="btn btn--verde modal__submit" id="modalSubmit">Sumalo al pedido</button>
+        </div>
+        <p class="modal__ask">¿Dudas? <a id="modalAsk" href="https://wa.me/595993491203" target="_blank" rel="noopener">Consultanos por WhatsApp</a></p>
+      </form>
+    </div>
+  </div>
 
   <!-- Botón flotante de WhatsApp -->
   <a class="wa-float" id="waFloat" href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
@@ -295,6 +409,6 @@
   <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="js/main.js?v=3"></script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>

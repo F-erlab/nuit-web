@@ -5,7 +5,7 @@
   "use strict";
 
   /* ---------- Configuración ---------- */
-  // Reemplazá por el número real de WhatsApp de la tienda (formato internacional, sin +)
+  // Número de WhatsApp de la tienda (formato internacional, sin +)
   var WHATSAPP = "595993491203";
 
   var C = {
@@ -15,31 +15,47 @@
 
   /* ---------- Catálogo ---------- */
   var PRODUCTS = [
-    { id: "remera-nande-verde", name: "Remera Ñande", meta: "Oversize · Verde", price: 180000, cat: "ropa",
+    { id: "remera-nande-verde", desc: "Remera oversize de algodón 100% peinado, con el isotipo bordado en el pecho. La de todos los días.", name: "Remera Ñande", meta: "Oversize · Verde", price: 180000, cat: "ropa",
       bg: "crema", art: { type: "tee", color: C.verde, print: "iso-chest", ink: "crema" }, badge: "Ao Po'i" },
-    { id: "remera-nanduti-noche", name: "Remera Ñandutí", meta: "Boxy · Negro noche", price: 195000, cat: "ropa",
+    { id: "remera-nanduti-noche", desc: "Corte boxy en negro noche con el círculo del ñandutí estampado al frente. Para salir y que se note.", name: "Remera Ñandutí", meta: "Boxy · Negro noche", price: 195000, cat: "ropa",
       bg: "crema", art: { type: "tee", color: C.noche, print: "nanduti", ink: "crema" } },
-    { id: "hoodie-aopoi", name: "Hoodie Ao Po'i", meta: "Puff print · Crudo", price: 320000, cat: "ropa",
+    { id: "hoodie-aopoi", desc: "Hoodie pesado en crudo con el logo en puff print. Abriga, cae bien y dura.", name: "Hoodie Ao Po'i", meta: "Puff print · Crudo", price: 320000, cat: "ropa",
       bg: "verde", art: { type: "hoodie", color: C.crema, print: "logo", ink: "verde" }, badge: "Nuevo", badgeTone: "tierra" },
-    { id: "gorra-n-verde", name: "Gorra n.", meta: "Bordado crema · Verde", price: 120000, cat: "ropa",
+    { id: "gorra-n-verde", desc: "Gorra verde yerba con la n. bordada en crema. Ajustable atrás.", name: "Gorra n.", meta: "Bordado crema · Verde", price: 120000, cat: "ropa",
       bg: "crema", art: { type: "cap", color: C.verde, ink: "crema" } },
-    { id: "remera-pyhare-tierra", name: "Remera Pyhare", meta: "Oversize · Terracota", price: 180000, cat: "ropa",
+    { id: "remera-pyhare-tierra", desc: "Oversize en terracota, el color de nuestra tierra colorada. Logo al pecho.", name: "Remera Pyhare", meta: "Oversize · Terracota", price: 180000, cat: "ropa",
       bg: "crema", art: { type: "tee", color: C.tierra, print: "logo", ink: "crema" }, badge: "Yvy Pytã" },
-    { id: "hoodie-noche", name: "Hoodie Noche", meta: "Algodón pesado · Negro", price: 320000, cat: "ropa",
+    { id: "hoodie-noche", desc: "Algodón pesado en negro noche, capucha amplia y bolsillo canguro. Tu abrigo de la previa.", name: "Hoodie Noche", meta: "Algodón pesado · Negro", price: 320000, cat: "ropa",
       bg: "tierra", art: { type: "hoodie", color: C.noche, print: "logo", ink: "crema" } },
-    { id: "anillo-punto", name: "Anillo Punto", meta: "Plata 925", price: 260000, cat: "joyeria",
+    { id: "anillo-punto", desc: "Anillo de plata 925 con una bolita de metal como firma. Grabado interno con la n.", name: "Anillo Punto", meta: "Plata 925", price: 260000, cat: "joyeria",
       bg: "noche", art: { type: "ring", metal: "plata" }, badge: "925", badgeTone: "oro" },
-    { id: "medalla-nanduti", name: "Medalla Ñandutí", meta: "Oro 18k · Calado radial", price: 1450000, cat: "joyeria",
+    { id: "medalla-nanduti", desc: "Medalla de oro 18k con calado radial inspirado en el ñandutí. Va con certificado de autenticidad.", name: "Medalla Ñandutí", meta: "Oro 18k · Calado radial", price: 1450000, cat: "joyeria",
       bg: "noche", art: { type: "medal", metal: "oro" }, badge: "18k", badgeTone: "oro" },
-    { id: "argollas", name: "Argollas Punto", meta: "Plata y oro", price: 340000, cat: "joyeria",
+    { id: "argollas", desc: "Par de argollas con bolita: una en plata, una en oro. Para usar juntas o mezclar.", name: "Argollas Punto", meta: "Plata y oro", price: 340000, cat: "joyeria",
       bg: "noche", art: { type: "hoops" } },
-    { id: "remera-tajy", name: "Remera Tajy", meta: "Cápsula primavera · Lapacho", price: 185000, cat: "ropa",
+    { id: "remera-tajy", desc: "Cápsula de primavera en rosa lapacho, con el isotipo en el pecho. Pocas piezas por talle.", name: "Remera Tajy", meta: "Cápsula primavera · Lapacho", price: 185000, cat: "ropa",
       bg: "crema", art: { type: "tee", color: C.lapacho, print: "iso-chest", ink: "noche" }, badge: "Tajy" },
-    { id: "gorra-n-noche", name: "Gorra n. Noche", meta: "Bordado oro · Negro", price: 125000, cat: "ropa",
+    { id: "gorra-n-noche", desc: "Gorra negra con la n. bordada en oro. Ajustable atrás.", name: "Gorra n. Noche", meta: "Bordado oro · Negro", price: 125000, cat: "ropa",
       bg: "verde", art: { type: "cap", color: C.noche, ink: "oro" } },
-    { id: "anillo-nanduti", name: "Anillo Ñandutí", meta: "Plata 925 · Calado", price: 290000, cat: "joyeria",
+    { id: "anillo-nanduti", desc: "Anillo de plata 925 con calado de ñandutí. Hecho a mano, en edición corta.", name: "Anillo Ñandutí", meta: "Plata 925 · Calado", price: 290000, cat: "joyeria",
       bg: "noche", art: { type: "ring", metal: "plata", nanduti: true } }
   ];
+
+  // Talles: remeras y hoodies S–XL; gorras talle único; joyería sin talle
+  var SIZES = ["S", "M", "L", "XL"];
+  PRODUCTS.forEach(function (p) {
+    var t = p.art.type;
+    if (t === "tee" || t === "hoodie") {
+      p.sizes = SIZES;
+      p.note = "Corte oversize: si te gusta más ajustado, pedí un talle menos.";
+    } else if (t === "cap") {
+      p.note = "Talle único, ajustable.";
+    } else if (t === "ring") {
+      p.note = "La medida la vemos juntos por WhatsApp.";
+    } else {
+      p.note = "Hecho a mano en Paraguay, en edición corta.";
+    }
+  });
 
   /* ---------- Utilidades ---------- */
   function gs(n) { return "Gs. " + n.toLocaleString("es-PY").replace(/,/g, "."); }
@@ -201,17 +217,22 @@
 
   /* ---------- Render de productos ---------- */
   var grid = $("#products");
+  function badgeHTML(p) {
+    return p.badge ? '<span class="product__badge' + (p.badgeTone ? " product__badge--" + p.badgeTone : "") + '">' + p.badge + "</span>" : "";
+  }
   function renderProducts(filter) {
     grid.innerHTML = PRODUCTS.filter(function (p) {
       return filter === "todo" || p.cat === filter;
     }).map(function (p, i) {
       return '<article class="product" style="animation-delay:' + (i * 50) + 'ms">' +
         '<div class="product__media bg-' + p.bg + '">' +
-          (p.badge ? '<span class="product__badge' + (p.badgeTone ? " product__badge--" + p.badgeTone : "") + '">' + p.badge + "</span>" : "") +
+          badgeHTML(p) +
           art(p.art) +
-          '<button class="product__add" data-add="' + p.id + '" aria-label="Agregar ' + p.name + ' al carrito">+ Agregar</button>' +
+          (p.sizes
+            ? '<button type="button" class="product__add" data-open="' + p.id + '" aria-label="Elegí tu talle: ' + p.name + '">Ver talles</button>'
+            : '<button type="button" class="product__add" data-add="' + p.id + '" aria-label="Agregar ' + p.name + ' al pedido">+ Agregar</button>') +
         "</div>" +
-        '<h3 class="product__name">' + p.name + "</h3>" +
+        '<h3 class="product__name"><button type="button" class="product__open" data-open="' + p.id + '" aria-haspopup="dialog">' + p.name + "</button></h3>" +
         '<p class="product__meta">' + p.meta + "</p>" +
         '<p class="product__price">' + gs(p.price) + "</p>" +
       "</article>";
@@ -223,7 +244,7 @@
     $$(".filter").forEach(function (b) {
       var on = b.dataset.filter === f;
       b.classList.toggle("is-active", on);
-      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.setAttribute("aria-pressed", on ? "true" : "false");
     });
     renderProducts(f);
   }
@@ -234,78 +255,216 @@
     a.addEventListener("click", function () { setFilter(a.dataset.gotoFilter); });
   });
 
+  /* ---------- Capas (pedido y vista rápida): foco y scroll ---------- */
+  var layers = [];   // pila de capas abiertas: { el, close, back }
+  var FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select, textarea, [tabindex]:not([tabindex="-1"])';
+  function focusables(el) {
+    return $$(FOCUSABLE, el).filter(function (n) { return n.offsetParent !== null || n === document.activeElement; });
+  }
+  function pushLayer(el, close) {
+    layers.push({ el: el, close: close, back: document.activeElement });
+    document.body.style.overflow = "hidden";
+    el.focus();
+  }
+  function popLayer(el) {
+    for (var i = layers.length - 1; i >= 0; i--) {
+      if (layers[i].el === el) {
+        var back = layers[i].back;
+        layers.splice(i, 1);
+        if (back && document.contains(back) && back.focus) back.focus();
+        break;
+      }
+    }
+    if (!layers.length) document.body.style.overflow = "";
+  }
+  document.addEventListener("keydown", function (e) {
+    var top = layers[layers.length - 1];
+    if (!top) return;
+    if (e.key === "Escape") { e.preventDefault(); top.close(); return; }
+    if (e.key !== "Tab") return;
+    var f = focusables(top.el);
+    if (!f.length) { e.preventDefault(); top.el.focus(); return; }
+    var first = f[0], last = f[f.length - 1], cur = document.activeElement;
+    if (!top.el.contains(cur) || cur === top.el) { e.preventDefault(); (e.shiftKey ? last : first).focus(); }
+    else if (e.shiftKey && cur === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && cur === last) { e.preventDefault(); first.focus(); }
+  });
+
   /* ---------- Carrito ---------- */
+  // Clave del carrito: "id" o "id::talle" para distinguir talles
+  var SEP = "::";
   var cart = {};
   try { cart = JSON.parse(localStorage.getItem("nuit-cart")) || {}; } catch (e) { cart = {}; }
+  if (typeof cart !== "object" || Array.isArray(cart)) cart = {};
   function save() { try { localStorage.setItem("nuit-cart", JSON.stringify(cart)); } catch (e) { /* sin almacenamiento */ } }
   function find(id) { for (var i = 0; i < PRODUCTS.length; i++) if (PRODUCTS[i].id === id) return PRODUCTS[i]; }
+  function keyOf(id, size) { return size ? id + SEP + size : id; }
+  function parseKey(key) {
+    var parts = key.split(SEP), p = find(parts[0]);
+    var q = Math.floor(Number(cart[key]));
+    if (!p || !(q > 0)) return null;
+    var size = parts[1] && p.sizes && p.sizes.indexOf(parts[1]) > -1 ? parts[1] : "";
+    if (key !== keyOf(p.id, size)) return null;   // descarta claves raras guardadas
+    return { key: key, p: p, size: size, q: q };
+  }
+  function entries() { return Object.keys(cart).map(parseKey).filter(Boolean); }
+  function addToCart(id, size, q) {
+    var k = keyOf(id, size);
+    cart[k] = (Math.floor(Number(cart[k])) || 0) + (q || 1);
+    save(); renderCart();
+  }
 
   var cartEl = $("#cart"), overlay = $("#overlay");
   function openCart() {
+    if (cartEl.classList.contains("is-open")) return;
     cartEl.classList.add("is-open"); cartEl.setAttribute("aria-hidden", "false");
-    overlay.hidden = false; document.body.style.overflow = "hidden";
+    overlay.hidden = false;
+    pushLayer(cartEl, closeCart);
   }
   function closeCart() {
+    if (!cartEl.classList.contains("is-open")) return;
     cartEl.classList.remove("is-open"); cartEl.setAttribute("aria-hidden", "true");
-    overlay.hidden = true; document.body.style.overflow = "";
+    overlay.hidden = true;
+    popLayer(cartEl);
   }
   $("#cartOpen").addEventListener("click", openCart);
   $("#cartClose").addEventListener("click", closeCart);
   overlay.addEventListener("click", closeCart);
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeCart(); });
 
+  function sizeLabel(it) {
+    if (it.size) return "Talle " + it.size;
+    return it.p.sizes ? "Talle a confirmar" : "";
+  }
+  function orderMessage(list) {
+    var total = 0;
+    var lines = list.map(function (it) {
+      total += it.p.price * it.q;
+      var talle = sizeLabel(it);
+      return "• " + it.q + " × " + it.p.name + " (" + it.p.meta + ")" + (talle ? " · " + talle : "") + " — " + gs(it.p.price * it.q);
+    });
+    return "¡Hola nuit.! Quiero hacer este pedido:\n\n" + lines.join("\n") + "\n\nTotal: " + gs(total);
+  }
+
+  var checkout = $("#checkout");
   function renderCart() {
-    var ids = Object.keys(cart).filter(find), total = 0, count = 0;
+    var list = entries(), total = 0, count = 0;
     var body = $("#cartItems");
-    if (!ids.length) {
+    if (!list.length) {
       body.innerHTML = '<div class="cart__empty"><img src="assets/isotipo-n-verde.png" alt=""><span class="lora">Todavía está vacío.</span>Elegí algo para tu noche.</div>';
     } else {
-      body.innerHTML = ids.map(function (id) {
-        var p = find(id), q = cart[id];
-        total += p.price * q; count += q;
+      body.innerHTML = list.map(function (it) {
+        var p = it.p, talle = sizeLabel(it), full = p.name + (talle ? ", " + talle.toLowerCase() : "");
+        total += p.price * it.q; count += it.q;
         return '<div class="cart-item">' +
           '<div class="cart-item__thumb bg-' + p.bg + '">' + art(p.art) + "</div>" +
-          '<div><p class="cart-item__name">' + p.name + '</p><p class="cart-item__price">' + gs(p.price) + "</p></div>" +
-          '<div class="qty"><button data-dec="' + id + '" aria-label="Quitar uno">−</button><span>' + q + '</span><button data-inc="' + id + '" aria-label="Sumar uno">+</button></div>' +
+          '<div><p class="cart-item__name">' + p.name + "</p>" +
+            (talle ? '<p class="cart-item__size">' + talle + "</p>" : "") +
+            '<p class="cart-item__price">' + gs(p.price) + "</p></div>" +
+          '<div class="qty" role="group" aria-label="Cantidad de ' + full + '">' +
+            '<button type="button" data-dec="' + it.key + '" aria-label="Quitar uno de ' + full + '">−</button><span>' + it.q + "</span>" +
+            '<button type="button" data-inc="' + it.key + '" aria-label="Sumar uno de ' + full + '">+</button></div>' +
         "</div>";
       }).join("");
     }
     $("#cartTotal").textContent = gs(total);
+    checkout.href = "https://wa.me/" + WHATSAPP + (list.length ? "?text=" + encodeURIComponent(orderMessage(list)) : "");
+    checkout.classList.toggle("is-disabled", !list.length);
     var badge = $("#cartCount");
     badge.textContent = count;
+    $("#cartOpen").setAttribute("aria-label", "Abrir tu pedido (" + count + (count === 1 ? " producto)" : " productos)"));
     badge.classList.add("bump");
     setTimeout(function () { badge.classList.remove("bump"); }, 250);
   }
 
   document.addEventListener("click", function (e) {
-    var t = e.target.closest("[data-add],[data-inc],[data-dec]");
+    var t = e.target.closest("[data-add],[data-inc],[data-dec],[data-open]");
     if (!t) return;
+    if (t.dataset.open) { openModal(t.dataset.open, t); return; }
     if (t.dataset.add) {
-      cart[t.dataset.add] = (cart[t.dataset.add] || 0) + 1;
+      addToCart(t.dataset.add, "", 1);
       toast(find(t.dataset.add).name + " · agregado al pedido");
-    } else if (t.dataset.inc) {
-      cart[t.dataset.inc]++;
-    } else if (t.dataset.dec) {
-      cart[t.dataset.dec]--;
-      if (cart[t.dataset.dec] <= 0) delete cart[t.dataset.dec];
+      return;
     }
+    var k = t.dataset.inc || t.dataset.dec;
+    if (!(k in cart)) return;
+    var q = (Math.floor(Number(cart[k])) || 0) + (t.dataset.inc ? 1 : -1);
+    if (q <= 0) delete cart[k]; else cart[k] = q;
     save(); renderCart();
+    // el re-render reemplaza los botones: devolvemos el foco al mismo control
+    var again = $('[data-' + (t.dataset.inc ? "inc" : "dec") + '="' + k + '"]', cartEl);
+    (again || $("#cartClose")).focus();
   });
 
-  $("#checkout").addEventListener("click", function () {
-    var ids = Object.keys(cart).filter(find);
-    if (!ids.length) { toast("Tu pedido está vacío."); return; }
-    var total = 0;
-    var lines = ids.map(function (id) {
-      var p = find(id); total += p.price * cart[id];
-      return "• " + cart[id] + " × " + p.name + " (" + p.meta + ") — " + gs(p.price * cart[id]);
-    });
-    var msg = "¡Hola nuit.! Quiero hacer este pedido:\n\n" + lines.join("\n") + "\n\nTotal: " + gs(total);
-    window.open("https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg), "_blank", "noopener");
+  checkout.addEventListener("click", function (e) {
+    if (!entries().length) { e.preventDefault(); toast("Tu pedido está vacío."); }
   });
 
   $("#whatsappLink").href = "https://wa.me/" + WHATSAPP;
   renderCart();
+
+  /* ---------- Vista rápida de producto ---------- */
+  var modal = $("#modal"), modalDialog = $("#modalDialog"), modalForm = $("#modalForm");
+  var current = null, modalQty = 1;
+  function setQty(n) {
+    modalQty = Math.max(1, Math.min(10, n));
+    $("#modalQty").textContent = modalQty;
+    $("#modalSubmit").textContent = "Sumalo al pedido · " + gs(current.price * modalQty);
+  }
+  function openModal(id) {
+    var p = find(id);
+    if (!p) return;
+    current = p;
+    $("#modalMedia").className = "modal__media bg-" + p.bg;
+    $("#modalMedia").innerHTML = badgeHTML(p) + art(p.art);
+    $("#modalCat").textContent = p.cat === "joyeria" ? "Joyería" : "Ropa";
+    $("#modalName").textContent = p.name;
+    $("#modalMeta").textContent = p.meta;
+    $("#modalPrice").textContent = gs(p.price);
+    $("#modalDesc").textContent = p.desc;
+    $("#modalNote").textContent = p.note || "";
+    $("#modalError").textContent = "";
+    $("#modalSizes").hidden = !p.sizes;
+    $("#modalSizeRow").innerHTML = (p.sizes || []).map(function (s) {
+      return '<label class="size"><input type="radio" name="talle" value="' + s + '"><span>' + s + "</span></label>";
+    }).join("");
+    $("#modalAsk").href = "https://wa.me/" + WHATSAPP + "?text=" +
+      encodeURIComponent("¡Hola nuit.! Tengo una consulta sobre " + p.name + " (" + p.meta + ").");
+    setQty(1);
+    if (!modal.hidden) return;
+    modal.hidden = false;
+    modalDialog.scrollTop = 0;
+    pushLayer(modalDialog, closeModal);
+  }
+  function closeModal() {
+    if (modal.hidden) return;
+    modal.hidden = true;
+    popLayer(modalDialog);
+  }
+  $("#modalClose").addEventListener("click", closeModal);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
+  modalForm.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-mq]");
+    if (b) setQty(modalQty + Number(b.dataset.mq));
+  });
+  modalForm.addEventListener("change", function () { $("#modalError").textContent = ""; });
+  modalForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!current) return;
+    var size = "";
+    if (current.sizes) {
+      var picked = $('input[name="talle"]:checked', modalForm);
+      if (!picked) {
+        $("#modalError").textContent = "Elegí tu talle para sumarlo.";
+        $('input[name="talle"]', modalForm).focus();
+        return;
+      }
+      size = picked.value;
+    }
+    var name = current.name, q = modalQty;
+    addToCart(current.id, size, q);
+    closeModal();
+    toast((q > 1 ? q + " × " : "") + name + (size ? " · talle " + size : "") + " · agregado al pedido");
+  });
 
   /* ---------- Toast ---------- */
   var toastTimer;
@@ -317,15 +476,15 @@
     toastTimer = setTimeout(function () { el.classList.remove("is-visible"); }, 2400);
   }
 
-  /* ---------- Info de ayuda ---------- */
-  var INFO = {
-    envios: "Envíos a todo el país. Gran Asunción en 24–48 h.",
-    talles: "Corte oversize: si te gusta más ajustado, pedí un talle menos.",
-    cuidado: "Lavá a mano o en frío, del revés. Cuidala y te dura años."
-  };
-  $$("[data-info]").forEach(function (a) {
-    a.addEventListener("click", function (e) { e.preventDefault(); toast(INFO[a.dataset.info]); });
+  /* ---------- Ayuda: abrir la pregunta enlazada ---------- */
+  function openFaq(id) {
+    var d = id && document.getElementById(id);
+    if (d && d.tagName === "DETAILS") d.open = true;
+  }
+  $$("[data-faq]").forEach(function (a) {
+    a.addEventListener("click", function () { openFaq(a.dataset.faq); });
   });
+  openFaq(location.hash.slice(1));
 
   /* ---------- Menú móvil ---------- */
   var menuBtn = $("#menuBtn"), nav = $("#nav");
@@ -354,7 +513,7 @@
   });
 
   /* ---------- Revelado al hacer scroll ---------- */
-  var revealEls = $$(".drop__text, .drop__visual, .section-head, .jewel__text, .jewel__cards, .coll, .manifesto__inner, .about__text, .values, .community__feed, .community__text");
+  var revealEls = $$(".drop__text, .drop__visual, .section-head, .jewel__text, .jewel__cards, .step, .coll, .manifesto__inner, .faq__intro, .faq__list, .about__text, .values, .community__feed, .community__text");
   if ("IntersectionObserver" in window) {
     revealEls.forEach(function (el) { el.classList.add("reveal"); });
     var io = new IntersectionObserver(function (entries) {
