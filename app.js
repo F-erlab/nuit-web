@@ -431,7 +431,7 @@ function renderCheckout() {
          ["contraentrega", "Pago contra entrega", "Efectivo o QR al recibir"]].map(([v, t, s]) =>
         `<label class="radio-card"><input type="radio" name="pago" value="${v}" ${(d.pago || "tarjeta") === v ? "checked" : ""}><div>${t}<small>${s}</small></div></label>`).join("")}
       <p class="notice">🔒 Al confirmar, enviás el pedido a nuestro WhatsApp y ahí coordinamos el pago. Nunca te vamos a pedir el número, el código ni el PIN de tu tarjeta por chat.</p>
-      <label class="radio-card"><input type="checkbox" name="terminos" ${d.terminos ? "checked" : ""}><div>Acepto los términos y condiciones y la política de privacidad</div></label>
+      <label class="radio-card"><input type="checkbox" name="terminos" ${d.terminos ? "checked" : ""}><div class="consent">Acepto los <a href="terminos.html" target="_blank" rel="noopener">términos y condiciones</a> y la <a href="privacidad.html" target="_blank" rel="noopener">política de privacidad</a></div></label>
       <span class="msg" id="termsMsg" style="color:var(--alerta);font-size:.78rem"></span>
     </div>`;
 
