@@ -66,10 +66,35 @@ const LS = {
   get: (k, d) => { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
   set: (k, v) => localStorage.setItem(k, JSON.stringify(v)),
 };
+// Lo guardado en el navegador puede estar alterado: se valida antes de usarlo.
+const existe = id => PRODUCTOS.some(p => p.id === id);
+function cargarCarrito() {
+  const raw = LS.get("nuit_cart", []);
+  if (!Array.isArray(raw)) return [];
+  const vistos = new Set();
+  return raw.flatMap(l => {
+    if (!l || typeof l.id !== "string" || !existe(l.id) || vistos.has(l.id)) return [];
+    vistos.add(l.id);
+    const stock = PRODUCTOS.find(p => p.id === l.id).stock;
+    const qty = Math.min(stock, Math.max(1, Math.floor(Number(l.qty)) || 1));
+    return [{ id: l.id, qty }];
+  });
+}
+function cargarFavoritos() {
+  const raw = LS.get("nuit_favs", []);
+  return Array.isArray(raw) ? [...new Set(raw.filter(id => typeof id === "string" && existe(id)))] : [];
+}
+function cargarCupon() {
+  const raw = LS.get("nuit_coupon", null);
+  return typeof raw === "string" && Object.hasOwn(CUPONES, raw) ? raw : null;
+}
+// Versiones anteriores guardaban los datos personales de cada pedido en el navegador: se borran.
+try { localStorage.removeItem("nuit_orders"); } catch {}
+
 const state = {
-  carrito: LS.get("nuit_cart", []),      // [{id, qty}]
-  favoritos: LS.get("nuit_favs", []),     // [id]
-  cupon: LS.get("nuit_coupon", null),
+  carrito: cargarCarrito(),     // [{id, qty}]
+  favoritos: cargarFavoritos(), // [id]
+  cupon: cargarCupon(),
   filtro: "todos",
   busqueda: "",
   orden: "relevancia",
@@ -88,7 +113,9 @@ const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;"
 function toast(msg, icon = "✓") {
   const t = document.createElement("div");
   t.className = "toast";
-  t.innerHTML = `<span>${icon}</span>${msg}`;
+  const ico = document.createElement("span");
+  ico.textContent = icon;
+  t.append(ico, document.createTextNode(msg));
   const cont = $("#toasts");
   while (cont.children.length >= 2) cont.firstElementChild.remove();
   cont.appendChild(t);
@@ -252,7 +279,7 @@ function renderCart() {
         <h4>${esc(p.nombre)}</h4>
         <small>${money(p.precio)} c/u${p.stock <= 5 ? " · ¡últimas unidades!" : ""}</small><br>
         <div class="qty" role="group" aria-label="Cantidad">
-          <button data-dec="${p.id}" aria-label="Restar uno">−</button><span>${l.qty}</span><button data-inc="${p.id}" aria-label="Sumar uno">+</button>
+          <button data-dec="${p.id}" aria-label="Restar uno">−</button><span>${Number(l.qty)}</span><button data-inc="${p.id}" aria-label="Sumar uno">+</button>
         </div>
       </div>
       <div class="line-right"><strong>${money(p.precio * l.qty)}</strong><button class="remove" data-remove="${p.id}">Eliminar</button></div>
@@ -263,7 +290,7 @@ function renderCart() {
   $("#totals").innerHTML = `
     <div><span>Subtotal</span><span>${money(t.subtotal)}</span></div>
     ${t.ahorro ? `<div class="discount"><span>Ahorrás en ofertas</span><span>${money(t.ahorro)}</span></div>` : ""}
-    ${t.descuento ? `<div class="discount"><span>Cupón ${state.cupon}</span><span>−${money(t.descuento)}</span></div>` : ""}
+    ${t.descuento ? `<div class="discount"><span>Cupón ${esc(state.cupon)}</span><span>−${money(t.descuento)}</span></div>` : ""}
     <div><span>Envío</span><span>${t.envio ? money(t.envio) : "Gratis"}</span></div>
     <div class="grand"><span>Total</span><span>${money(t.total)}</span></div>
     <div style="font-size:.78rem;color:var(--gris)"><span>o ${CONFIG.cuotas} cuotas sin interés de ${money(t.total / CONFIG.cuotas)}</span></div>`;
@@ -278,7 +305,7 @@ function aplicarCupon() {
   if (state.cupon) { state.cupon = null; save(); msg.textContent = "Cupón eliminado"; msg.className = "coupon-msg"; renderCart(); return; }
   const code = $("#couponInput").value.trim().toUpperCase();
   if (!code) { msg.textContent = "Ingresá un código"; msg.className = "coupon-msg err"; return; }
-  if (!CUPONES[code]) { msg.textContent = "Código inválido o vencido"; msg.className = "coupon-msg err"; return; }
+  if (!Object.hasOwn(CUPONES, code)) { msg.textContent = "Código inválido o vencido"; msg.className = "coupon-msg err"; return; }
   state.cupon = code; save(); renderCart(); toast("Cupón aplicado", "🏷");
 }
 
@@ -360,10 +387,10 @@ function resumenHTML() {
   const t = calcular(co.datos.envio || "estandar", co.datos.pago || null);
   return `<aside class="summary">
     <h4>Resumen del pedido</h4>
-    ${state.carrito.map(l => { const p = byId(l.id); return `<div class="sum-line"><img src="${p.img}" alt=""><span>${esc(p.nombre)} × ${l.qty}</span><strong>${money(p.precio * l.qty)}</strong></div>`; }).join("")}
+    ${state.carrito.map(l => { const p = byId(l.id); return `<div class="sum-line"><img src="${p.img}" alt=""><span>${esc(p.nombre)} × ${Number(l.qty)}</span><strong>${money(p.precio * l.qty)}</strong></div>`; }).join("")}
     <div class="totals" style="margin-top:1rem">
       <div><span>Subtotal</span><span>${money(t.subtotal)}</span></div>
-      ${t.descuento ? `<div class="discount"><span>Cupón ${state.cupon}</span><span>−${money(t.descuento)}</span></div>` : ""}
+      ${t.descuento ? `<div class="discount"><span>Cupón ${esc(state.cupon)}</span><span>−${money(t.descuento)}</span></div>` : ""}
       ${t.descTransf ? `<div class="discount"><span>Transferencia 5%</span><span>−${money(t.descTransf)}</span></div>` : ""}
       <div><span>Envío</span><span>${t.envio ? money(t.envio) : "Gratis"}</span></div>
       <div class="grand"><span>Total</span><span>${money(t.total)}</span></div>
@@ -371,9 +398,9 @@ function resumenHTML() {
   </aside>`;
 }
 
-function field(id, label, type = "text", extra = "") {
+function field(id, label, type = "text", extra = "", max = 120) {
   const v = co.datos[id] ?? "";
-  return `<div class="field"><label for="f-${id}">${label}</label><input id="f-${id}" name="${id}" type="${type}" value="${esc(v)}" ${extra} /><span class="msg"></span></div>`;
+  return `<div class="field"><label for="f-${id}">${label}</label><input id="f-${id}" name="${id}" type="${type}" value="${esc(v)}" maxlength="${max}" ${extra} /><span class="msg"></span></div>`;
 }
 
 function renderCheckout() {
@@ -383,8 +410,7 @@ function renderCheckout() {
   if (co.paso === 1) form = `
     <div class="form-step active" data-step="1">
       ${field("nombre", "Nombre y apellido", "text", 'autocomplete="name" required')}
-      <div class="row">${field("email", "Email", "email", 'autocomplete="email" required')}${field("telefono", "Teléfono / WhatsApp", "tel", 'autocomplete="tel" required')}</div>
-      <label class="radio-card"><input type="checkbox" name="news" ${d.news ? "checked" : ""}><div>Quiero recibir novedades y ofertas<small>Sin spam, podés darte de baja cuando quieras.</small></div></label>
+      <div class="row">${field("email", "Email", "email", 'autocomplete="email" required')}${field("telefono", "Teléfono / WhatsApp", "tel", 'autocomplete="tel" required', 20)}</div>
     </div>`;
   if (co.paso === 2) form = `
     <div class="form-step active" data-step="2">
@@ -395,7 +421,7 @@ function renderCheckout() {
       <div id="addrFields" style="display:${d.envio === "retiro" ? "none" : "grid"};gap:1rem">
         ${field("direccion", "Dirección", "text", 'autocomplete="street-address"')}
         <div class="row">${field("ciudad", "Ciudad", "text", 'autocomplete="address-level2"')}${field("cp", "Código postal", "text", 'autocomplete="postal-code"')}</div>
-        ${field("notas", "Notas (opcional) — ej: medida de muñeca para ajustar la malla")}
+        ${field("notas", "Notas (opcional) — ej: medida de muñeca para ajustar la malla", "text", "", 300)}
       </div>
     </div>`;
   if (co.paso === 3) form = `
@@ -404,7 +430,7 @@ function renderCheckout() {
          ["transferencia", "Transferencia bancaria", "5% de descuento extra"],
          ["contraentrega", "Pago contra entrega", "Efectivo o QR al recibir"]].map(([v, t, s]) =>
         `<label class="radio-card"><input type="radio" name="pago" value="${v}" ${(d.pago || "tarjeta") === v ? "checked" : ""}><div>${t}<small>${s}</small></div></label>`).join("")}
-      <p class="notice">🔒 Al confirmar, serás redirigido a la pasarela de pago segura para completar el pago con tarjeta. Nunca almacenamos los datos de tu tarjeta.</p>
+      <p class="notice">🔒 Al confirmar, enviás el pedido a nuestro WhatsApp y ahí coordinamos el pago. Nunca te vamos a pedir el número, el código ni el PIN de tu tarjeta por chat.</p>
       <label class="radio-card"><input type="checkbox" name="terminos" ${d.terminos ? "checked" : ""}><div>Acepto los términos y condiciones y la política de privacidad</div></label>
       <span class="msg" id="termsMsg" style="color:var(--alerta);font-size:.78rem"></span>
     </div>`;
@@ -450,7 +476,7 @@ function validar() {
   const reglas = {
     nombre: v => v.length >= 3 || "Ingresá tu nombre completo",
     email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v) || "Email inválido",
-    telefono: v => v.replace(/\D/g, "").length >= 7 || "Teléfono inválido",
+    telefono: v => (/^[+\d\s()-]+$/.test(v) && v.replace(/\D/g, "").length >= 7 && v.replace(/\D/g, "").length <= 15) || "Teléfono inválido",
     direccion: v => co.datos.envio === "retiro" || v.length >= 5 || "Ingresá tu dirección",
     ciudad: v => co.datos.envio === "retiro" || v.length >= 2 || "Ingresá tu ciudad",
     cp: v => co.datos.envio === "retiro" || v.length >= 3 || "Código postal inválido",
@@ -467,37 +493,66 @@ function validar() {
   return ok;
 }
 
+const ENVIOS = { estandar: "Envío estándar", express: "Envío express", retiro: "Retiro en tienda" };
+const PAGOS = { tarjeta: "Tarjeta de crédito / débito", transferencia: "Transferencia bancaria", contraentrega: "Pago contra entrega" };
+
 function siguientePaso() {
   guardarForm();
-  if (!co.datos.envio) co.datos.envio = "estandar";
-  if (!co.datos.pago) co.datos.pago = "tarjeta";
+  if (!Object.hasOwn(ENVIOS, co.datos.envio)) co.datos.envio = "estandar";
+  if (!Object.hasOwn(PAGOS, co.datos.pago)) co.datos.pago = "tarjeta";
   if (!validar()) return;
   if (co.paso < 3) { co.paso++; renderCheckout(); $("#coModal .modal-box").scrollTop = 0; return; }
   confirmarPedido();
 }
 
+// El pedido se envía al WhatsApp de la tienda. No se guarda ningún dato personal en el navegador.
+function mensajePedido(nro, t) {
+  const d = co.datos;
+  const lineas = [
+    `Hola nuit.! Quiero hacer este pedido (${nro}):`,
+    "",
+    ...state.carrito.map(l => { const p = byId(l.id); return `• ${p.nombre} × ${l.qty} = ${money(p.precio * l.qty)}`; }),
+    "",
+    `Subtotal: ${money(t.subtotal)}`,
+    t.descuento ? `Cupón ${state.cupon}: −${money(t.descuento)}` : null,
+    t.descTransf ? `Descuento transferencia: −${money(t.descTransf)}` : null,
+    `Envío (${ENVIOS[d.envio]}): ${t.envio ? money(t.envio) : "Gratis"}`,
+    `Total: ${money(t.total)}`,
+    `Pago: ${PAGOS[d.pago]}`,
+    "",
+    `Nombre: ${d.nombre}`,
+    `Teléfono: ${d.telefono}`,
+    `Email: ${d.email}`,
+    d.envio !== "retiro" ? `Dirección: ${d.direccion}, ${d.ciudad} (CP ${d.cp})` : null,
+    d.notas ? `Notas: ${d.notas}` : null,
+  ];
+  return lineas.filter(l => l !== null).join("\n");
+}
+
 function confirmarPedido() {
   const t = calcular(co.datos.envio, co.datos.pago);
   const nro = "NU-" + Date.now().toString().slice(-6);
-  const pedido = { nro, fecha: new Date().toISOString(), items: state.carrito, total: t.total, datos: co.datos };
-  const hist = LS.get("nuit_orders", []); hist.push(pedido); LS.set("nuit_orders", hist);
-  // Descontar stock en la sesión
-  state.carrito.forEach(l => { byId(l.id).stock = Math.max(0, byId(l.id).stock - l.qty); });
-  const pagoTxt = { tarjeta: "Te redirigiremos a la pasarela de pago para completar el pago.", transferencia: "Te enviamos por email los datos bancarios para la transferencia.", contraentrega: "Pagás al recibir tu pedido." }[co.datos.pago];
+  const url = `https://wa.me/${encodeURIComponent(CONFIG.whatsapp)}?text=${encodeURIComponent(mensajePedido(nro, t))}`;
   $("#coContent").innerHTML = `
     <div class="success">
       <div class="success-ico">✓</div>
-      <h3>¡Gracias por tu compra, ${esc(co.datos.nombre.split(" ")[0])}!</h3>
-      <p>Tu pedido <strong>${nro}</strong> por <strong>${money(t.total)}</strong> fue recibido. ${pagoTxt} Enviamos la confirmación a <strong>${esc(co.datos.email)}</strong>.</p>
-      <button class="btn btn-primary" data-close>Seguir comprando</button>
+      <h3>Último paso, ${esc(co.datos.nombre.split(" ")[0])}</h3>
+      <p>Tu pedido <strong>${nro}</strong> por <strong>${money(t.total)}</strong> está listo. Envialo por WhatsApp para confirmarlo: ahí te respondemos con la disponibilidad y cómo pagar.</p>
+      <a class="btn btn-primary" id="sendOrder" target="_blank" rel="noopener noreferrer">Enviar pedido por WhatsApp</a>
     </div>`;
-  state.carrito = []; state.cupon = null; save(); renderCart(); updateBadges(); renderGrid();
+  const btn = $("#sendOrder");
+  btn.href = url;
+  btn.addEventListener("click", () => {
+    co.datos = {}; co.paso = 1;
+    state.carrito = []; state.cupon = null; save(); renderCart(); updateBadges(); renderGrid();
+    setTimeout(() => closeAll(), 300);
+  }, { once: true });
 }
 
 // ---------- Cuenta regresiva ----------
 function countdown() {
-  let fin = LS.get("nuit_offer_end", 0);
-  if (!fin || fin < Date.now()) { fin = Date.now() + 3 * 864e5 + 7 * 36e5; LS.set("nuit_offer_end", fin); }
+  let fin = Number(LS.get("nuit_offer_end", 0));
+  if (!Number.isFinite(fin) || fin < Date.now() || fin > Date.now() + 4 * 864e5) { fin = Date.now() + 3 * 864e5 + 7 * 36e5; LS.set("nuit_offer_end", fin); }
   const pad = n => String(n).padStart(2, "0");
   const tick = () => {
     const ms = Math.max(0, fin - Date.now());
@@ -555,7 +610,8 @@ $("#newsletterForm").addEventListener("submit", e => {
   const v = $("#nlEmail").value.trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) return toast("Ingresá un email válido", "!");
   $("#nlEmail").value = "";
-  toast("¡Listo! Usá el código BIENVENIDA para 15% OFF", "✉");
+  // No hay servidor que guarde suscripciones: la alta se pide por WhatsApp.
+  window.open(`https://wa.me/${encodeURIComponent(CONFIG.whatsapp)}?text=${encodeURIComponent(`Hola nuit.! Quiero sumarme al club nuit. Mi email: ${v}`)}`, "_blank", "noopener,noreferrer");
 });
 
 $("#waBtn").addEventListener("click", e => {
