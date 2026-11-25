@@ -1,10 +1,12 @@
 # nuit.
 
-Sitio web de **nuit.**: ropa urbana y joyería de autor de Luque, Paraguay. *Ñande pyhare.*
+Tienda online de relojes de **nuit.** (Paraguay): digitales, analógicos y deportivos.
 
-Hecho con HTML, CSS y JavaScript, sin dependencias. Abrí `index.html` para verlo.
+Hecha con HTML, CSS y JavaScript, sin dependencias. Abrí `index.html` para verla.
 
 - `index.html`: estructura de la página
-- `css/styles.css`: estilos según el brand book (paleta, tipografías)
-- `js/main.js`: catálogo, carrito y pedido por WhatsApp
-- `assets/`: logo e isotipo en colores de marca
+- `styles.css`: estilos con la paleta de nuit. (verde `#4E6A4C` y crema `#EFECE7`)
+- `app.js`: catálogo, filtros, favoritos, carrito, cupones y checkout
+- `img/`: logo, isotipo y fotos de los relojes
+
+Precios, envío, cuotas y número de WhatsApp se configuran en `CONFIG`, al principio de `app.js`.

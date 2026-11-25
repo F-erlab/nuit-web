@@ -1,414 +1,314 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>nuit. — Ropa urbana y joyería de autor · Luque, Paraguay</title>
-  <meta name="description" content="nuit. es streetwear con raíz y joyería con carácter. Diseño propio, hecho en Paraguay. Ñande pyhare.">
-  <meta name="theme-color" content="#4E684B">
-  <link rel="canonical" href="https://f-erlab.github.io/nuit-web/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="nuit.">
-  <meta property="og:locale" content="es_PY">
-  <meta property="og:url" content="https://f-erlab.github.io/nuit-web/">
-  <meta property="og:title" content="nuit. — Ropa urbana y joyería de autor · Luque, Paraguay">
-  <meta property="og:description" content="Streetwear con raíz y joyería con carácter. Diseño propio, hecho en Paraguay. Pedí por WhatsApp. Ñande pyhare.">
-  <meta property="og:image" content="https://f-erlab.github.io/nuit-web/assets/og-image.png">
-  <meta property="og:image:type" content="image/png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logo de nuit. en crema sobre fondo verde yerba">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="nuit. — Ropa urbana y joyería de autor">
-  <meta name="twitter:description" content="Streetwear con raíz y joyería con carácter. Hecho en Paraguay. Ñande pyhare.">
-  <meta name="twitter:image" content="https://f-erlab.github.io/nuit-web/assets/og-image.png">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@1,400;1,500&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=4">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>nuit. — Relojes que marcan tu estilo</title>
+  <meta name="description" content="nuit. Tienda online de relojes: digitales, analógicos y deportivos. Envío gratis, cambios en 30 días y pago en cuotas." />
+  <meta name="theme-color" content="#4E6A4C" />
+  <meta property="og:title" content="nuit. — Relojes" />
+  <meta property="og:description" content="Relojes digitales, analógicos y deportivos originales." />
+  <meta property="og:image" content="img/logo-verde.png" />
+  <link rel="icon" href="img/icono-n.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,700;1,9..144,800;1,9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a href="#contenido" class="skip-link">Saltar al contenido</a>
 
-  <!-- Barra de anuncio -->
-  <div class="announce">
-    <p>Envíos a todo el país · <strong>Hecho en Paraguay</strong> · <span class="lora">Ñande pyhare.</span></p>
+  <!-- Barra de anuncios -->
+  <div class="announce" aria-label="Promociones">
+    <div class="announce-track">
+      <span>Envío gratis en compras desde Gs. 500.000</span>
+      <span>Hasta 12 cuotas sin interés</span>
+      <span>30 días para cambios</span>
+      <span>10% OFF con el código NUIT10</span>
+      <span>Envío gratis en compras desde Gs. 500.000</span>
+      <span>Hasta 12 cuotas sin interés</span>
+      <span>30 días para cambios</span>
+      <span>10% OFF con el código NUIT10</span>
+    </div>
   </div>
 
   <!-- Header -->
-  <header class="header" id="top">
-    <div class="container header__inner">
-      <a href="#top" class="header__brand" aria-label="nuit. — inicio">
-        <img src="assets/logo-nuit-verde.png" alt="nuit." class="header__logo" width="1205" height="429">
-      </a>
-      <nav class="nav" id="nav" aria-label="Principal">
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <a href="#" class="logo" aria-label="nuit. inicio"><img src="img/logo-crema.webp" alt="nuit." /></a>
+      <nav class="nav" aria-label="Principal">
         <a href="#tienda">Tienda</a>
-        <a href="#joyeria">Joyería</a>
-        <a href="#colecciones">Colecciones</a>
+        <a href="#categorias">Colecciones</a>
+        <a href="#ofertas">Ofertas</a>
         <a href="#nosotros">Nosotros</a>
-        <a href="#ayuda">Ayuda</a>
+        <a href="#faq">Ayuda</a>
       </nav>
-      <div class="header__actions">
-        <button class="cart-btn" id="cartOpen" aria-label="Abrir tu pedido" aria-haspopup="dialog">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="cart-btn__count" id="cartCount" aria-hidden="true">0</span>
+      <div class="header-actions">
+        <button class="icon-btn" id="searchToggle" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
         </button>
-        <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
-          <span></span><span></span>
+        <button class="icon-btn" id="favBtn" aria-label="Favoritos">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-9.5-9.3C1.2 8.4 3.3 5 6.8 5c2 0 3.4 1.1 4.2 2.4h2C13.8 6.1 15.2 5 17.2 5c3.5 0 5.6 3.4 4.3 6.7C19.5 16.4 12 21 12 21z"/></svg>
+          <span class="badge-count" id="favCount">0</span>
+        </button>
+        <button class="icon-btn" id="cartBtn" aria-label="Abrir carrito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 7h14l-1.2 12.1a2 2 0 0 1-2 1.9H8.2a2 2 0 0 1-2-1.9L5 7z"/><path d="M9 7V6a3 3 0 0 1 6 0v1"/></svg>
+          <span class="badge-count" id="cartCount">0</span>
         </button>
       </div>
+    </div>
+    <div class="search-bar" id="searchBar">
+      <form class="container" id="searchForm" role="search">
+        <label for="searchInput" class="sr-only">Buscar relojes</label>
+        <input id="searchInput" type="search" placeholder="Buscar por modelo, color o estilo…" autocomplete="off" />
+        <button class="btn btn-light" type="submit">Buscar</button>
+      </form>
     </div>
   </header>
 
-  <main id="contenido">
+  <!-- Menú móvil -->
+  <nav class="mobile-nav" id="mobileNav" aria-label="Menú móvil">
+    <button class="close" data-close-mobile aria-label="Cerrar menú">×</button>
+    <a href="#tienda" data-close-mobile>Tienda</a>
+    <a href="#categorias" data-close-mobile>Colecciones</a>
+    <a href="#ofertas" data-close-mobile>Ofertas</a>
+    <a href="#nosotros" data-close-mobile>Nosotros</a>
+    <a href="#faq" data-close-mobile>Ayuda</a>
+  </nav>
+
+  <main>
     <!-- Hero -->
     <section class="hero">
-      <div class="nanduti hero__pattern" aria-hidden="true"></div>
-      <div class="container hero__inner">
-        <p class="eyebrow eyebrow--light">Colección Ao Po'i — invierno 2026</p>
-        <h1 class="hero__logo">
-          <img src="assets/logo-nuit-crema.png" alt="nuit." width="1205" height="429">
-          <span class="hero__est">EST. 2025</span>
-        </h1>
-        <p class="hero__tagline lora">Ñande pyhare.</p>
-        <p class="hero__lead">Streetwear con raíz. Joyería con carácter. Diseñado en Luque, hecho para la calle.</p>
-        <div class="hero__ctas">
-          <a href="#tienda" class="btn btn--crema">Ver la tienda</a>
-          <a href="#joyeria" class="btn btn--outline-light">Joyería 925</a>
+      <div class="container hero-inner">
+        <div>
+          <span class="eyebrow">Nueva colección · Invierno 2026</span>
+          <h1>El tiempo,<br />a tu manera.</h1>
+          <p>Relojes clásicos, digitales y deportivos seleccionados para acompañarte todos los días. Originales y con envío a todo el país.</p>
+          <div class="hero-ctas">
+            <a href="#tienda" class="btn btn-light">Comprar ahora</a>
+            <a href="#categorias" class="btn btn-outline">Ver colecciones</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>24 h</strong><span>de despacho</span></div>
+            <div><strong>12</strong><span>cuotas sin interés</span></div>
+            <div><strong>30</strong><span>días para cambios</span></div>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-circle"></div>
+          <img src="img/mtp1381-azul.png" alt="Reloj analógico plateado con esfera azul" />
+          <div class="hero-tag t1"><strong>Destacado</strong>Clásico Azul Day-Date</div>
+          <div class="hero-tag t2"><strong>Gs. 520.000</strong>o 12 × Gs. 43.333</div>
         </div>
       </div>
-      <div class="hero__coords" aria-hidden="true">25°16'S · 57°29'O — Luque · PY</div>
+      <svg class="hero-wave" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path fill="currentColor" d="M0 60V30C240 0 480 0 720 22s480 38 720 8v30z"/></svg>
     </section>
 
-    <!-- Pilares -->
-    <div class="marquee" aria-label="Pilares de marca">
-      <div class="marquee__track">
-        <span>Raíz paraguaya</span><i>n.</i><span>Cultura urbana</span><i>n.</i><span>Diseño propio</span><i>n.</i><span>Calidad que dura</span><i>n.</i><span>Noche &amp; comunidad</span><i>n.</i>
-        <span>Raíz paraguaya</span><i>n.</i><span>Cultura urbana</span><i>n.</i><span>Diseño propio</span><i>n.</i><span>Calidad que dura</span><i>n.</i><span>Noche &amp; comunidad</span><i>n.</i>
-      </div>
+    <!-- Beneficios -->
+    <div class="container perks">
+      <div class="perk"><div class="perk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></div><div><strong>Envío gratis</strong><span>En compras desde Gs. 500.000</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div><strong>100% originales</strong><span>Nuevos y en su caja</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg></div><div><strong>12 cuotas sin interés</strong><span>Con todas las tarjetas</span></div></div>
+      <div class="perk"><div class="perk-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></div><div><strong>Cambios fáciles</strong><span>30 días para devolver</span></div></div>
     </div>
 
-    <!-- Drop destacado -->
-    <section class="drop">
-      <div class="container drop__grid">
-        <div class="drop__text">
-          <p class="eyebrow">Nuevo drop</p>
-          <h2 class="h2">Hecho acá.<br>Para la calle.</h2>
-          <p class="lora drop__sub">Colección Ao Po'i — bordado tono sobre tono en prendas oversize.</p>
-          <p>El ao po'i de siempre, llevado a remeras boxy y hoodies pesados. Algodón 100% peinado, bordado a mano y cortado en Paraguay. Pocas piezas por talle: cuando se van, se van.</p>
-          <a href="#tienda" class="btn btn--verde">Comprar Ao Po'i</a>
+    <!-- Categorías -->
+    <section class="section" id="categorias">
+      <div class="container">
+        <div class="section-head">
+          <h2>Comprá por estilo</h2>
+          <p>Desde el digital retro que nunca pasa de moda hasta el analógico elegante para la oficina.</p>
         </div>
-        <div class="drop__visual">
-          <div class="tile tile--verde drop__tile">
-            <div class="nanduti nanduti--faint" aria-hidden="true"></div>
-            <div class="drop__art" data-art="hoodie" data-color="#EFECE8" data-print="verde"></div>
-            <span class="drop__tag">Hoodie Ao Po'i · Gs. 320.000</span>
-          </div>
+        <div class="cats">
+          <button class="cat" data-cat="digital"><img src="img/a168-plata.png" alt="" /><span class="cat-label">Digitales <small id="c-digital"></small></span></button>
+          <button class="cat" data-cat="analogico"><img src="img/mtp1170-dorado.png" alt="" /><span class="cat-label">Analógicos <small id="c-analogico"></small></span></button>
+          <button class="cat" data-cat="deportivo"><img src="img/gshock-negro.png" alt="" /><span class="cat-label">Deportivos <small id="c-deportivo"></small></span></button>
+          <button class="cat" data-cat="vintage"><img src="img/b650-rosa.png" alt="" /><span class="cat-label">Vintage <small id="c-vintage"></small></span></button>
         </div>
       </div>
     </section>
 
     <!-- Tienda -->
-    <section class="shop" id="tienda">
+    <section class="section" id="tienda" style="padding-top:0">
       <div class="container">
         <div class="section-head">
-          <div>
-            <p class="eyebrow">Tienda</p>
-            <h2 class="h2">Lo nuestro, en la calle.</h2>
+          <h2>Todos los relojes</h2>
+          <p>Stock real, envío en 24-72 h. Agregá al carrito y pagá en cuotas.</p>
+        </div>
+        <div class="toolbar">
+          <div class="chips" id="chips" role="tablist" aria-label="Filtrar por categoría">
+            <button class="chip active" data-filter="todos">Todos</button>
+            <button class="chip" data-filter="digital">Digitales</button>
+            <button class="chip" data-filter="analogico">Analógicos</button>
+            <button class="chip" data-filter="deportivo">Deportivos</button>
+            <button class="chip" data-filter="vintage">Vintage</button>
+            <button class="chip" data-filter="oferta">En oferta</button>
           </div>
-          <div class="filters" role="group" aria-label="Filtrar productos">
-            <button type="button" class="filter is-active" data-filter="todo" aria-pressed="true">Todo</button>
-            <button type="button" class="filter" data-filter="ropa" aria-pressed="false">Ropa</button>
-            <button type="button" class="filter" data-filter="joyeria" aria-pressed="false">Joyería</button>
+          <div class="toolbar-right">
+            <div class="price-filter">
+              <label for="maxPrice">Hasta</label>
+              <input type="range" id="maxPrice" min="300000" max="900000" step="25000" value="900000" />
+              <strong id="maxPriceLabel">Gs. 900.000</strong>
+            </div>
+            <label for="sort" class="sr-only">Ordenar</label>
+            <select id="sort" class="select">
+              <option value="relevancia">Más relevantes</option>
+              <option value="precio-asc">Menor precio</option>
+              <option value="precio-desc">Mayor precio</option>
+              <option value="nombre">Nombre A-Z</option>
+            </select>
           </div>
         </div>
-        <div class="products" id="products"></div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+        <div class="grid" id="grid" style="margin-top:1rem"></div>
       </div>
     </section>
 
-    <!-- Cómo comprar -->
-    <section class="how" id="como-comprar">
+    <!-- Promo -->
+    <section class="section" id="ofertas" style="padding-top:0">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Cómo comprar</p>
-            <h2 class="h2">Tres pasos y es tuyo.</h2>
+        <div class="promo">
+          <div class="promo-text">
+            <span class="eyebrow">Oferta por tiempo limitado</span>
+            <h3>G-Shock Camo<br />al 15% OFF</h3>
+            <p>Resistente a golpes, 200 m de resistencia al agua y luz LED. Diseñado para aguantar todo lo que le pongas.</p>
+            <div class="countdown" id="countdown" aria-label="Tiempo restante de la oferta">
+              <div><b id="cd-d">00</b><small>días</small></div>
+              <div><b id="cd-h">00</b><small>hs</small></div>
+              <div><b id="cd-m">00</b><small>min</small></div>
+              <div><b id="cd-s">00</b><small>seg</small></div>
+            </div>
+            <span class="code">NUIT10</span>
+            <button class="btn btn-light" data-quick="gshock-camo">Lo quiero</button>
           </div>
-          <a href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." class="btn btn--outline-dark" target="_blank" rel="noopener">Escribinos</a>
+          <div class="promo-visual"><img src="img/gshock-negro.png" alt="Reloj deportivo negro con detalles dorados" style="mix-blend-mode:multiply;border-radius:24px" /></div>
         </div>
-        <ol class="steps">
-          <li class="step">
-            <span class="step__num lora" aria-hidden="true">1.</span>
-            <h3>Elegís</h3>
-            <p>Mirá la tienda, elegí tu talle y sumalo al pedido.</p>
-          </li>
-          <li class="step">
-            <span class="step__num lora" aria-hidden="true">2.</span>
-            <h3>Pedís por WhatsApp</h3>
-            <p>Tu pedido nos llega armado, con talles y total. Sin registrarte.</p>
-          </li>
-          <li class="step">
-            <span class="step__num lora" aria-hidden="true">3.</span>
-            <h3>Coordinamos</h3>
-            <p>Te respondemos al toque para cerrar pago y envío.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- Joyería -->
-    <section class="jewel" id="joyeria">
-      <div class="container jewel__grid">
-        <div class="jewel__text">
-          <p class="eyebrow eyebrow--oro">Joyería · Plata 925 y oro 18k</p>
-          <h2 class="h2">Plata, oro y diseño propio.</h2>
-          <p>Nuestra línea más sobria: menos gráfica, más forma y material. Formas redondeadas como las curvas del logo, el círculo del ñandutí como estructura y una bolita de metal en cada pieza como firma.</p>
-          <ul class="jewel__list">
-            <li><strong>Grabado interno</strong> con el isotipo <em>n.</em> y la ley del metal.</li>
-            <li><strong>Hecho a mano</strong> en Paraguay, en ediciones cortas.</li>
-            <li><strong>Certificado de autenticidad</strong> en cada pieza de oro.</li>
-          </ul>
-          <a href="#tienda" class="btn btn--oro" data-goto-filter="joyeria">Ver joyería</a>
-        </div>
-        <div class="jewel__cards">
-          <article class="jewel__card">
-            <div class="jewel__art" data-art="ring" data-metal="plata"></div>
-            <p class="lora jewel__name">Anillo Punto</p>
-            <p class="label">Plata 925 · Diseño nuit.</p>
-          </article>
-          <article class="jewel__card">
-            <div class="jewel__art" data-art="medal" data-metal="oro"></div>
-            <p class="lora jewel__name">Medalla Ñandutí</p>
-            <p class="label">Oro 18k · Calado radial</p>
-          </article>
-          <article class="jewel__seal">
-            <img src="assets/isotipo-n-oro.png" alt="" width="678" height="411">
-            <span class="label">n. 18k</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Colecciones -->
-    <section class="collections" id="colecciones">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Colecciones</p>
-            <h2 class="h2">Cada colección es un capítulo de la noche.</h2>
-          </div>
-        </div>
-        <div class="coll-grid">
-          <article class="coll coll--crema">
-            <span class="label">Invierno 2026 · disponible</span>
-            <h3 class="lora">Ao Po'i</h3>
-            <p>Bordado tono sobre tono en prendas oversize.</p>
-            <span class="coll__meta">Crema · Verde</span>
-          </article>
-          <article class="coll coll--lapacho">
-            <span class="label">Primavera · agosto</span>
-            <h3 class="lora">Tajy</h3>
-            <p>Cápsula de primavera, cuando florece el lapacho en Asunción.</p>
-            <span class="coll__meta">Lapacho · Crema</span>
-          </article>
-          <article class="coll coll--tierra">
-            <span class="label">Otoño · próximamente</span>
-            <h3 class="lora">Yvy Pytã</h3>
-            <p>Tierra colorada: terracota, cuero y plata envejecida.</p>
-            <span class="coll__meta">Tierra · Noche</span>
-          </article>
-          <article class="coll coll--oro">
-            <span class="label">Joyería · permanente</span>
-            <h3 class="lora">Ñandutí</h3>
-            <p>Línea de joyas en oro y plata con calados radiales.</p>
-            <span class="coll__meta">Oro · Plata</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Manifiesto -->
-    <section class="manifesto">
-      <div class="nanduti nanduti--faint manifesto__pattern" aria-hidden="true"></div>
-      <div class="container manifesto__inner">
-        <p class="manifesto__quote lora">“Lo nuestro también es tendencia.”</p>
-        <img src="assets/isotipo-n-crema.png" alt="" class="manifesto__iso" width="678" height="411">
       </div>
     </section>
 
     <!-- Nosotros -->
-    <section class="about" id="nosotros">
-      <div class="container about__grid">
-        <div class="about__text">
-          <p class="eyebrow eyebrow--oro">Nosotros</p>
-          <h2 class="h2">La noche es nuestra.</h2>
-          <p class="about__lead"><strong>nuit.</strong> significa <span class="lora">noche.</span> Es el momento en que la ciudad cambia de ritmo: el tereré se vuelve previa, la plaza se vuelve punto de encuentro y la calle se vuelve pasarela.</p>
-          <p>Somos una marca de ropa juvenil y joyería de autor nacida en Luque, Paraguay. Tomamos lo nuestro —el ñandutí, el ao po'i, el guaraní, la tierra colorada, el lapacho— y lo llevamos a la calle con códigos urbanos y contemporáneos. Sin folklore de souvenir: identidad paraguaya, usada con orgullo y con estilo.</p>
-          <p>El punto final del logo es una declaración: <span class="lora">lo decimos y listo.</span></p>
-        </div>
-        <div class="values">
-          <div class="value"><h3>Orgullo local.</h3><p>Lo nuestro tiene valor y lo mostramos.</p></div>
-          <div class="value"><h3>Hecho con intención.</h3><p>Diseño propio, materiales nobles, acabado prolijo.</p></div>
-          <div class="value"><h3>Comunidad.</h3><p>La marca se construye con la gente que la usa.</p></div>
-          <div class="value"><h3>Atemporal + calle.</h3><p>Piezas para usar mucho, no para tirar.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ayuda / preguntas frecuentes -->
-    <section class="faq" id="ayuda">
-      <div class="container faq__grid">
-        <div class="faq__intro">
-          <p class="eyebrow">Ayuda</p>
-          <h2 class="h2">Preguntá tranquilo.</h2>
-          <p>Lo que más nos consultan, en corto. ¿Te quedó una duda? Escribinos y te respondemos al toque.</p>
-          <a href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." class="btn btn--verde" target="_blank" rel="noopener">Consultar por WhatsApp</a>
-        </div>
-        <div class="faq__list">
-          <details class="faq__item" id="faq-envios" name="faq" open>
-            <summary>¿Hacen envíos?</summary>
-            <p>Sí, a todo el país. En Gran Asunción llega en 24–48 h. El costo y el horario los coordinamos por WhatsApp cuando confirmás tu pedido.</p>
-          </details>
-          <details class="faq__item" id="faq-talles" name="faq">
-            <summary>¿Qué talle pido?</summary>
-            <p>Remeras y hoodies vienen en S, M, L y XL, con corte oversize. Si te gusta más ajustado, pedí un talle menos. Las gorras son talle único y la medida de los anillos la vemos juntos por WhatsApp.</p>
-          </details>
-          <details class="faq__item" id="faq-pago" name="faq">
-            <summary>¿Cómo pago?</summary>
-            <p>Armás tu pedido acá y nos lo mandás por WhatsApp. Ahí te confirmamos disponibilidad y coordinamos el pago y la entrega.</p>
-          </details>
-          <details class="faq__item" id="faq-cuidado" name="faq">
-            <summary>¿Cómo cuido mi prenda?</summary>
-            <p>Lavala a mano o en frío, del revés, y secala a la sombra. Cuidala y te dura años.</p>
-          </details>
-          <details class="faq__item" id="faq-joyas" name="faq">
-            <summary>¿Y las joyas?</summary>
-            <p>Guardalas secas y lejos de perfumes y cremas. Si la plata se oscurece, un paño suave la deja como nueva. Las piezas de oro van con certificado de autenticidad.</p>
-          </details>
+    <section class="section" id="nosotros">
+      <div class="container about">
+        <div class="about-img"><img src="img/logo-verde.png" alt="Logo nuit. Est. 2025" /></div>
+        <div>
+          <span class="eyebrow" style="color:var(--verde)">Sobre nuit.</span>
+          <h2>Relojes con historia, elegidos con cariño.</h2>
+          <p>Nacimos en 2025 con una idea simple: que comprar un buen reloj sea tan fácil como mirarlo. Seleccionamos piezas icónicas, confiables y que duran años.</p>
+          <p>Cada reloj se revisa antes de salir y viaja en su caja original con un empaque nuit. listo para regalar.</p>
+          <ul class="checks">
+            <li>Productos originales y nuevos</li>
+            <li>Empaque de regalo sin costo</li>
+            <li>Atención personalizada por WhatsApp</li>
+            <li>Ajuste de malla gratis en tienda</li>
+          </ul>
+          <a href="#tienda" class="btn btn-primary">Explorar la tienda</a>
         </div>
       </div>
     </section>
 
-    <!-- Comunidad / newsletter -->
-    <section class="community">
-      <div class="container community__grid">
-        <div class="community__feed" aria-hidden="true">
-          <div class="feed feed--dusk"></div>
-          <div class="feed feed--verde"><img src="assets/logo-nuit-crema.png" alt=""></div>
-          <div class="feed feed--noche"><span class="feed__dot"></span></div>
-          <div class="feed feed--crema"><b>Hecho acá.<br>Para la calle.</b><em class="lora">Colección Ao Po'i</em></div>
-          <div class="feed feed--sand"></div>
-          <div class="feed feed--tierra"><span class="lora">Ñande pyhare.</span></div>
+    <!-- FAQ -->
+    <section class="section" id="faq" style="padding-top:0">
+      <div class="container">
+        <div class="section-head" style="justify-content:center;text-align:center"><h2>Preguntas frecuentes</h2></div>
+        <div class="faq">
+          <details open><summary>¿Los relojes son originales?</summary><p>Sí. Todos nuestros relojes son originales y nuevos, en su caja. Trabajamos con proveedores independientes, no con el distribuidor oficial de Casio, por lo que no incluyen la garantía oficial de la marca.</p></details>
+          <details><summary>¿Cuánto tarda el envío?</summary><p>Despachamos en 24 h hábiles. El envío estándar demora entre 2 y 5 días hábiles; el envío express llega en 24-48 h. Recibís un número de seguimiento por email.</p></details>
+          <details><summary>¿Puedo cambiar o devolver mi reloj?</summary><p>Tenés 30 días desde que lo recibís para cambiarlo o devolverlo, siempre que esté sin uso, con film protector y en su caja original. El primer cambio es gratis.</p></details>
+          <details><summary>¿Qué medios de pago aceptan?</summary><p>Tarjetas de crédito y débito (Visa, Mastercard, Amex), transferencia bancaria con 5% de descuento y pago contra entrega en ciudades seleccionadas. Hasta 12 cuotas sin interés.</p></details>
+          <details><summary>¿Ajustan la malla metálica?</summary><p>Sí, el ajuste es gratis en nuestra tienda. Si comprás online, indicá la medida de tu muñeca en las notas del pedido y lo enviamos ajustado.</p></details>
         </div>
-        <div class="community__text">
-          <p class="eyebrow">Comunidad</p>
-          <h2 class="h2">Ahora también es tu noche.</h2>
-          <p>Sumate a la lista y enterate antes que nadie de cada drop, pop-up y feria. Te regalamos <strong>10% en tu primera compra.</strong></p>
-          <form class="newsletter" id="newsletter" novalidate>
-            <label for="email" class="sr-only">Tu correo</label>
-            <input type="email" id="email" name="email" placeholder="tu@correo.com" required autocomplete="email">
-            <button type="submit" class="btn btn--verde">Sumarme</button>
-          </form>
-          <p class="newsletter__msg" id="newsletterMsg" role="status"></p>
-          <p class="community__social">Escribinos al <a href="https://wa.me/595993491203" target="_blank" rel="noopener">WhatsApp 0993 491 203</a> · Seguinos en <a href="https://www.instagram.com/nuit.parfums.py/" target="_blank" rel="noopener">@nuit.parfums.py</a> · #ÑandePyhare #HechoEnParaguay</p>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="container">
+      <div class="newsletter">
+        <div>
+          <h3>Sumate al club nuit.</h3>
+          <p>Lanzamientos, ofertas exclusivas y 10% OFF en tu primera compra.</p>
         </div>
+        <form id="newsletterForm" novalidate>
+          <label for="nlEmail" class="sr-only">Email</label>
+          <input id="nlEmail" type="email" placeholder="tu@email.com" required />
+          <button class="btn btn-primary" type="submit">Suscribirme</button>
+        </form>
       </div>
     </section>
   </main>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="nanduti nanduti--faint footer__pattern" aria-hidden="true"></div>
-    <div class="container footer__inner">
-      <div class="footer__brand">
-        <img src="assets/isotipo-n-crema.png" alt="nuit." class="footer__iso" width="678" height="411">
-        <p class="lora footer__tag">Ñande pyhare.</p>
-        <p class="label">nuit. · EST. 2025 · Luque, Paraguay</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="img/logo-crema.webp" alt="nuit." />
+          <p>Relojes originales, envío a todo el país y atención cercana. Est. 2025.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c.5 3 2.5 5 5.5 5"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2z"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Tienda</h4><ul><li><a href="#tienda" data-foot="digital">Digitales</a></li><li><a href="#tienda" data-foot="analogico">Analógicos</a></li><li><a href="#tienda" data-foot="deportivo">Deportivos</a></li><li><a href="#tienda" data-foot="oferta">Ofertas</a></li></ul></div>
+        <div><h4>Ayuda</h4><ul><li><a href="#faq">Preguntas frecuentes</a></li><li><a href="#faq">Envíos y seguimiento</a></li><li><a href="#faq">Cambios y devoluciones</a></li></ul></div>
+        <div><h4>Contacto</h4><ul><li><a href="#">WhatsApp: +00 000 000 000</a></li><li><a href="#">hola@nuit.store</a></li><li>Lun a Sáb · 9 a 20 h</li><li><a href="#">Términos y condiciones</a></li><li><a href="#">Política de privacidad</a></li></ul></div>
       </div>
-      <div class="footer__cols">
-        <div>
-          <h4>Tienda</h4>
-          <a href="#tienda" data-goto-filter="ropa">Ropa</a>
-          <a href="#tienda" data-goto-filter="joyeria">Joyería</a>
-          <a href="#colecciones">Colecciones</a>
-        </div>
-        <div>
-          <h4>Ayuda</h4>
-          <a href="#como-comprar">Cómo comprar</a>
-          <a href="#faq-envios" data-faq="faq-envios">Envíos</a>
-          <a href="#faq-talles" data-faq="faq-talles">Guía de talles</a>
-          <a href="#faq-cuidado" data-faq="faq-cuidado">Cuidado de prendas</a>
-        </div>
-        <div>
-          <h4>Contacto</h4>
-          <a href="https://www.instagram.com/nuit.parfums.py/" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://wa.me/595993491203" id="whatsappLink" target="_blank" rel="noopener">WhatsApp · 0993 491 203</a>
-          <span>Luque, Paraguay</span>
-        </div>
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> nuit. Todos los derechos reservados.</span>
+        <div class="pay-icons" aria-label="Medios de pago"><span>VISA</span><span>MASTER</span><span>AMEX</span><span>TRANSF.</span></div>
       </div>
-    </div>
-    <div class="container footer__bottom">
-      <span>© <span id="year">2026</span> nuit. Hecho en Paraguay 🇵🇾</span>
-      <span>Diseño propio · Plata 925 · Algodón 100%</span>
     </div>
   </footer>
 
+  <!-- WhatsApp -->
+  <a class="wa" href="#" aria-label="Escribinos por WhatsApp" id="waBtn">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.5-.3z"/></svg>
+  </a>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
   <!-- Carrito -->
-  <div class="overlay" id="overlay" hidden></div>
-  <aside class="cart" id="cart" role="dialog" aria-modal="true" aria-labelledby="cartTitle" aria-hidden="true" tabindex="-1">
-    <div class="cart__head">
-      <h3 id="cartTitle">Tu pedido</h3>
-      <button type="button" class="cart__close" id="cartClose" aria-label="Cerrar pedido">×</button>
+  <aside class="drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="drawer-head">
+      <h3>Tu carrito <small id="cartItemsLabel" style="font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--gris);font-weight:500"></small></h3>
+      <button class="close" data-close aria-label="Cerrar carrito">×</button>
     </div>
-    <div class="cart__body" id="cartItems"></div>
-    <div class="cart__foot">
-      <div class="cart__total"><span>Total</span><strong id="cartTotal">Gs. 0</strong></div>
-      <a class="btn btn--verde btn--block" id="checkout" href="https://wa.me/595993491203" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-      <p class="cart__note">Te respondemos al toque para coordinar pago y envío.</p>
+    <div class="ship-progress" id="shipProgress"></div>
+    <div class="drawer-body" id="cartBody"></div>
+    <div class="drawer-foot" id="cartFoot">
+      <div class="coupon">
+        <label for="couponInput" class="sr-only">Código de descuento</label>
+        <input id="couponInput" placeholder="Código de descuento" />
+        <button class="btn btn-outline" id="couponBtn">Aplicar</button>
+      </div>
+      <p class="coupon-msg" id="couponMsg"></p>
+      <div class="totals" id="totals"></div>
+      <button class="btn btn-primary btn-block" id="checkoutBtn">Finalizar compra</button>
+      <p class="secure">🔒 Pago 100% seguro · Cambios gratis por 30 días</p>
     </div>
   </aside>
 
-  <!-- Vista rápida de producto -->
-  <div class="modal" id="modal" hidden>
-    <div class="modal__dialog" id="modalDialog" role="dialog" aria-modal="true" aria-labelledby="modalName" tabindex="-1">
-      <button type="button" class="modal__close" id="modalClose" aria-label="Cerrar vista rápida">×</button>
-      <div class="modal__media" id="modalMedia"></div>
-      <form class="modal__info" id="modalForm" novalidate>
-        <p class="eyebrow" id="modalCat"></p>
-        <h3 class="modal__name" id="modalName"></h3>
-        <p class="product__meta" id="modalMeta"></p>
-        <p class="modal__price" id="modalPrice"></p>
-        <p class="modal__desc" id="modalDesc"></p>
-        <fieldset class="sizes" id="modalSizes">
-          <legend class="label">Elegí tu talle</legend>
-          <div class="sizes__row" id="modalSizeRow"></div>
-        </fieldset>
-        <p class="modal__note" id="modalNote"></p>
-        <p class="modal__error" id="modalError" role="alert"></p>
-        <div class="modal__buy">
-          <span class="label modal__qty-label" aria-hidden="true">Cantidad</span>
-          <div class="qty qty--lg" role="group" aria-label="Cantidad">
-            <button type="button" data-mq="-1" aria-label="Quitar uno">−</button>
-            <span id="modalQty" aria-live="polite">1</span>
-            <button type="button" data-mq="1" aria-label="Sumar uno">+</button>
-          </div>
-          <button type="submit" class="btn btn--verde modal__submit" id="modalSubmit">Sumalo al pedido</button>
-        </div>
-        <p class="modal__ask">¿Dudas? <a id="modalAsk" href="https://wa.me/595993491203" target="_blank" rel="noopener">Consultanos por WhatsApp</a></p>
-      </form>
+  <!-- Modal vista rápida -->
+  <div class="modal" id="qvModal" role="dialog" aria-modal="true" aria-label="Detalle del producto">
+    <div class="modal-box">
+      <button class="close" data-close aria-label="Cerrar">×</button>
+      <div id="qvContent"></div>
     </div>
   </div>
 
-  <!-- Botón flotante de WhatsApp -->
-  <a class="wa-float" id="waFloat" href="https://wa.me/595993491203?text=%C2%A1Hola%20nuit.!%20Quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
-    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6Zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7a.6.6 0 0 0 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8.9 3.9.8a3.3 3.3 0 0 0 2.1-1.5 2.6 2.6 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.5Z"/></svg>
-    <span>Escribinos</span>
-  </a>
+  <!-- Modal checkout -->
+  <div class="modal" id="coModal" role="dialog" aria-modal="true" aria-label="Finalizar compra">
+    <div class="modal-box">
+      <button class="close" data-close aria-label="Cerrar">×</button>
+      <div id="coContent"></div>
+    </div>
+  </div>
 
-  <!-- Toast -->
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="toasts" id="toasts" aria-live="polite"></div>
 
-  <script src="js/main.js?v=4"></script>
+  <script src="app.js"></script>
 </body>
 </html>
