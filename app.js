@@ -10,7 +10,7 @@ const CONFIG = {
   costoExpress: 30000,
   cuotas: 12,
   descuentoTransferencia: 0.05,
-  whatsapp: "595984561420", // ej: "59170000000" (código de país + número, sin +)
+  whatsapp: "595993491203", // ej: "59170000000" (código de país + número, sin +)
 };
 
 const CUPONES = {
